@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {RouterModule} from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {HomePageComponent} from './home-page/home-page.component';
@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './app-routes';
 import {AccessDeniedPageComponent} from './access-denied-page/access-denied-page.component';
 import {IfAccessAllowedToDirective} from './security/if-access-allowed-to.directive';
+import {enableSecurityForRoutes} from './security/enable-security';
 
 @NgModule({
   declarations: [
@@ -39,4 +40,7 @@ import {IfAccessAllowedToDirective} from './security/if-access-allowed-to.direct
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(router: Router) {
+    enableSecurityForRoutes(router);
+  }
 }

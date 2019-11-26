@@ -3,16 +3,18 @@ import {PageFrameComponent} from './page-frame/page-frame.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {AccessDeniedPageComponent} from './access-denied-page/access-denied-page.component';
-import {Routes} from '@angular/router';
+import {AuthorizedRoutes, Role} from './security/security.model';
 
-export const appRoutes: Routes = [
+export const appRoutes: AuthorizedRoutes = [
   {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+    permitAll: true
   },
   {
     path: 'access-denied',
-    component: AccessDeniedPageComponent
+    component: AccessDeniedPageComponent,
+    permitAll: true
   },
   {
     path: '',
@@ -20,11 +22,13 @@ export const appRoutes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomePageComponent
+        component: HomePageComponent,
+        accessAllowedTo: Role.User
       },
       {
         path: 'admin',
-        component: AdminPageComponent
+        component: AdminPageComponent,
+        accessAllowedTo: Role.Admin
       },
     ]
   },
