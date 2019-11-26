@@ -10,6 +10,7 @@ import {PageHeaderComponent} from './page-header/page-header.component';
 import {SecurityHttpInterceptor} from './security/security.http-interceptor';
 import {PageFrameComponent} from './page-frame/page-frame.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {appRoutes} from './app-routes';
 
 @NgModule({
   declarations: [
@@ -24,27 +25,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      {
-        path: 'login',
-        component: LoginPageComponent
-      },
-      {
-        path: '',
-        component: PageFrameComponent,
-        children: [
-          {
-            path: 'home',
-            component: HomePageComponent
-          },
-          {
-            path: 'admin',
-            component: AdminPageComponent
-          },
-        ]
-      },
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     {
