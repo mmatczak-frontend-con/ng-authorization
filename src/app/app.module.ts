@@ -12,9 +12,11 @@ import {PageFrameComponent} from './page-frame/page-frame.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './app-routes';
 import {AccessDeniedPageComponent} from './access-denied-page/access-denied-page.component';
+import {IfAccessAllowedToDirective} from './security/if-access-allowed-to.directive';
 
 @NgModule({
   declarations: [
+    IfAccessAllowedToDirective,
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
