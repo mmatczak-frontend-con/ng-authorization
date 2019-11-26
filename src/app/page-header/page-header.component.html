@@ -2,10 +2,10 @@
   <a class="navbar-brand" href="#">:)</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item" routerLinkActive="active">
+      <li *appIfAccessAllowedTo="'USER'" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/home">Home</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li *appIfAccessAllowedTo="'ADMIN'" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/admin">Admin Panel</a>
       </li>
     </ul>
