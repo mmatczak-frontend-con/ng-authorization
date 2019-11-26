@@ -1,2 +1,2 @@
-<app-page-header [user]="user$ | async" (logoutRequest)="logout()"></app-page-header>
+<app-page-header *ngIf="user$ | async as user" [user]="user" (logoutRequest)="logout()"></app-page-header>
 <router-outlet></router-outlet>
