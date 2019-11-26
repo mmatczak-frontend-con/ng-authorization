@@ -1,5 +1,5 @@
 import {Component, OnDestroy} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SecurityService} from '../security/security.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
@@ -16,8 +16,8 @@ export class LoginPageComponent implements OnDestroy {
 
   constructor(private security: SecurityService, private router: Router) {
     this.loginForm = new FormGroup({
-      user: new FormControl(''),
-      password: new FormControl('')
+      user: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnDestroy {
       this.loginSubscription = this.security.login(this.loginForm.value)
         .subscribe(() => {
           this.router.navigateByUrl('/home');
-        }, error => {
+        }, () => {
           this.loginForm.setErrors({badCredentials: true});
         });
     }

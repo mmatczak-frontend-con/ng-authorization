@@ -1,2 +1,4 @@
-<app-page-header *ngIf="user$ | async as user" [user]="user" (logoutRequest)="logout()"></app-page-header>
-<router-outlet></router-outlet>
+<app-page-header *ngIf="user$ | async as user" [user]="user" (logoutRequest)="logout()" class="sticky-top"></app-page-header>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

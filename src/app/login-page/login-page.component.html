@@ -1,5 +1,11 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <input type="text" formControlName="user">
-  <input type="password" formControlName="password" >
-  <button>Login</button>
-</form>
+<div class="container">
+  <form class="form-inline" [formGroup]="loginForm" (ngSubmit)="login()">
+    <label class="sr-only" for="user">Username</label>
+    <input type="text" class="form-control form-control-lg mb-2 mr-sm-2" id="user" placeholder="Username" formControlName="user">
+
+    <label class="sr-only" for="password">Username</label>
+    <input type="password" class="form-control form-control-lg mb-2 mr-sm-2" id="password" placeholder="Password"
+           formControlName="password">
+    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-lg btn-primary mb-2 mr-sm-2">Login</button>
+  </form>
+</div>
