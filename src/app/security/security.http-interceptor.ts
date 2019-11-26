@@ -1,12 +1,4 @@
-import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpHeaderResponse,
-  HttpInterceptor,
-  HttpRequest,
-  HttpResponse
-} from '@angular/common/http';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, of, throwError} from 'rxjs';
 import {securityContext} from './security-context';
 import {catchError} from 'rxjs/operators';
@@ -25,7 +17,6 @@ export class SecurityHttpInterceptor implements HttpInterceptor {
         headers: req.headers.set('Authorization', securityContext.getToken())
       });
     }
-    // return next.handle(request);
     return next.handle(request)
       .pipe(
         catchError((error: HttpErrorResponse) => {

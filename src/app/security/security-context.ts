@@ -1,5 +1,4 @@
-// tslint:disable-next-line:only-arrow-functions
-import {User} from './security.service';
+import {User} from './security.model';
 
 // tslint:disable-next-line:only-arrow-functions
 export const securityContext = function() {

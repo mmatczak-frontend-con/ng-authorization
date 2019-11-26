@@ -11,6 +11,7 @@ import {SecurityHttpInterceptor} from './security/security.http-interceptor';
 import {PageFrameComponent} from './page-frame/page-frame.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './app-routes';
+import {AccessDeniedPageComponent} from './access-denied-page/access-denied-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {appRoutes} from './app-routes';
     HomePageComponent,
     AdminPageComponent,
     PageHeaderComponent,
-    PageFrameComponent
+    PageFrameComponent,
+    AccessDeniedPageComponent
   ],
   imports: [
     BrowserModule,

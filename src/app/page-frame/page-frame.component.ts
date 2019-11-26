@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
-import {SecurityService, User} from '../security/security.service';
+import {SecurityService} from '../security/security.service';
 import {Router} from '@angular/router';
+import {User} from '../security/security.model';
 
 @Component({
   selector: 'app-page-frame',

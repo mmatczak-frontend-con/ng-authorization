@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {User} from '../security/security.service';
+import {User} from '../security/security.model';
 
 @Component({
   selector: 'app-page-header',
@@ -12,9 +12,6 @@ export class PageHeaderComponent {
 
   @Output()
   logoutRequest = new EventEmitter();
-
-  constructor() {
-  }
 
   logout() {
     this.logoutRequest.emit();

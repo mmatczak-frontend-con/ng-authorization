@@ -3,20 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {map, pluck} from 'rxjs/operators';
 import {securityContext} from './security-context';
+import {Role, User} from './security.model';
 
 export interface Credentials {
   user: string;
   password: string;
-}
-
-export enum Role {
-  User = 'USER',
-  Admin = 'ADMIN'
-}
-
-export interface User {
-  user: string;
-  roles: Role[];
 }
 
 @Injectable({
@@ -42,6 +33,13 @@ export class SecurityService {
         map(() => {
           securityContext.reset();
         })
+      );
+  }
+
+  userHasRole(role: Role): Observable<boolean> {
+    return this.getUser()
+      .pipe(
+        map(user => !!(user.roles && user.roles.find(userRole => userRole === role)))
       );
   }
 
